@@ -27,6 +27,7 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.responses import JSONResponse
 
 from mcp.server.fastmcp import FastMCP
+from mcp.server.transport_security import TransportSecuritySettings
 
 # --------------------------------------------------------------------------
 # Configuração
@@ -56,7 +57,23 @@ if not AUTH_TOKEN:
 BASE_URL = "https://intervals.icu/api/v1"
 BASIC_AUTH = HTTPBasicAuth("API_KEY", API_KEY)
 
-mcp = FastMCP("intervals-icu")
+# O FastMCP ativa automaticamente proteção contra DNS rebinding quando o host
+# é "localhost"/"127.0.0.1", só aceitando esses valores no cabeçalho Host. Em
+# produção (ex: Render) o Host real é o domínio público, por isso definimos
+# explicitamente o domínio permitido a partir da variável que o Render já
+# define sozinho (RENDER_EXTERNAL_HOSTNAME), mantendo a proteção mas correta.
+RENDER_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
+TRANSPORT_SECURITY = (
+    TransportSecuritySettings(
+        enable_dns_rebinding_protection=True,
+        allowed_hosts=[RENDER_HOSTNAME],
+        allowed_origins=[f"https://{RENDER_HOSTNAME}"],
+    )
+    if RENDER_HOSTNAME
+    else None
+)
+
+mcp = FastMCP("intervals-icu", host="0.0.0.0", transport_security=TRANSPORT_SECURITY)
 
 
 def _get(path: str, params: dict | None = None) -> dict | list:
