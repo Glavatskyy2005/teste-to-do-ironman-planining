@@ -34,6 +34,11 @@ cria com frontmatter `name: area-checkin-diario`, `description` curta,
 `metadata.type: project` se não existir). Uma linha por dia chega: data,
 treino feito (se algum, com duração/RPE), tarefas concluídas.
 
+Se o António mencionar uma tarefa que já estava no painel **Central Claudio**
+(ver [[reference-central-claudio-dashboard]]) como concluída, marca-a lá
+(`db`, coleção `tasks`, campo `done: true`) em vez de só anotar em memória —
+mantém o painel a refletir a realidade sem ele ter de o fazer à mão.
+
 ## Tom
 
 Breve, como uma pergunta rápida de um treinador atento — não um formulário.

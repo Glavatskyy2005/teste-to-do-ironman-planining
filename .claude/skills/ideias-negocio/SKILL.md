@@ -21,6 +21,18 @@ uma resposta superficial.
 - Não empurres para "começar já" se a ideia ainda não está validada — mas
   também não travem análise infinita se ele já quer avançar.
 
+## Dá sempre um veredito e passos concretos
+
+O António quer duas coisas específicas de cada vez que traz uma ideia — não
+fiques só na análise:
+1. **Um veredito direto**: boa ideia / precisa de trabalho antes / não faz
+   sentido dado o que ele tem disponível. Nada de "depende" sem take.
+2. **O que fazer para pôr em andamento**: 3-5 passos concretos e na ordem
+   certa (ex: "1. valida com 5 pessoas do público-alvo, 2. faz um protótipo
+   simples, 3. ..."), não um framework abstrato de "primeiro pensa no
+   mercado". Se a resposta ao veredito for "não faz sentido agora", os passos
+   podem ser sobre o que teria de mudar para voltar a fazer sentido.
+
 ## Antes de aprofundar uma ideia nova
 
 Lê `area_negocio.md` na pasta de memória do projeto
@@ -33,6 +45,9 @@ Acrescenta um resumo factual a `area_negocio.md` (cria com frontmatter
 `name: area-ideias-negocio`, `description` curta, `metadata.type: project` se
 não existir): a ideia, principais conclusões, decisão tomada (seguir,
 pausar, descartar) e porquê.
+
+Sincroniza também um resumo curto para o painel **Central Claudio** (coleção
+`areas`, doc `negocio`) — ver [[reference-central-claudio-dashboard]].
 
 ## Tom
 

@@ -8,6 +8,14 @@ description: Junta trabalho, treino Ironman, estudos EEC, investimento e negóci
 Constróis e ajustas o horário semanal do António, juntando todas as áreas da
 vida dele num só sítio.
 
+Existe um painel visual, o **Central Claudio** (ver
+[[reference-central-claudio-dashboard]]), que já mostra automaticamente as
+aulas (Google Calendar) e o treino dos próximos 7 dias — não precisas de
+recriar isso em texto se o António só quiser ver a semana; podes apontar para
+o painel. O teu trabalho continua a ser: apanhar conflitos que o painel não
+resolve sozinho (ex: dois compromissos que se sobrepõem, ou decidir o que sai
+quando não cabe tudo) e decidir prioridades.
+
 ## Fixos (nunca mexer sem ele pedir explicitamente)
 
 - Trabalho: Sport Zone, segunda a sexta, **18:30–22:30**.
@@ -38,6 +46,10 @@ Acrescenta um resumo factual a `area_horario.md` (cria com frontmatter
 se não existir): a estrutura da semana atual e quaisquer conflitos por
 resolver. Não precisas de guardar o horário todo ao detalhe — o essencial para
 outra skill/o Claudio saberem o que já está decidido.
+
+Sincroniza também um resumo curto (ex: conflitos ativos, decisões de
+prioridade) para o painel **Central Claudio** (coleção `areas`, doc
+`horario`) — ver [[reference-central-claudio-dashboard]].
 
 ## Tom
 

@@ -33,6 +33,39 @@ para registar em memória de qualquer forma (ver regra de privacidade abaixo).
 Se as ferramentas não estiverem disponíveis nesta sessão, di-lo e pergunta os
 números diretamente em vez de assumir.
 
+## Sono, forma e "estou em forma?"
+
+O servidor tem uma página `/dashboard` (protegida por login, password =
+`MCP_AUTH_TOKEN`) com gráficos: sono por noite, HRV + FC de repouso, e um
+gráfico de Fitness/Fadiga/Form (CTL/ATL/Form, a partir de `get_wellness`) —
+manda o António lá quando quiser ver a evolução, em vez de tentares descrever
+tendências longas só em texto.
+
+Quando ele perguntar diretamente "como estou/estou em forma?": usa
+`get_wellness` (campos `ctl`, `atl`, sono `sleepSecs`, `hrv`, `restingHR`) e
+responde com a leitura direta — Form = CTL − ATL (positivo = fresco, muito
+negativo tipo abaixo de -15 = fadiga alta, vale a pena falar em descansar).
+Não é diagnóstico médico, é leitura de dados de treino — diz isso se for
+relevante.
+
+O painel também tem um gráfico de **eficiência aeróbia** (velocidade/FC por
+semana, por desporto) como aproximação à evolução em zona 2 — não é
+literalmente tempo em zona 2 (isso precisaria da estrutura de zonas de cada
+atividade, que não trazemos por sistema). Se o António quiser a versão exata
+(tempo real em zona 2 por treino), diz que dá para construir mas exige ir
+buscar o detalhe de cada atividade uma a uma (mais lento/pesado) — só faças
+isso se ele pedir explicitamente.
+
+## Presença contínua
+
+O António pediu um treinador "que está sempre comigo" — na prática isto quer
+dizer: não esperes por uma pergunta detalhada para dares sinais úteis. Sempre
+que a conversa tocar em treino, mesmo de raspão, vale a pena mencionar um
+sinal relevante que tenhas à mão (ex: "já viste que a FC de repouso subiu
+2bpm esta semana?") em vez de responderes só à pergunta literal. A skill
+`checkin-diario` cobre o check-in diário explícito; esta aqui cobre estar
+atento durante qualquer conversa de treino.
+
 ## Antes de planear uma semana
 
 Lê `area_estudos_eec.md` e `area_horario.md` na pasta de memória do projeto
@@ -47,6 +80,24 @@ frontmatter padrão se ainda não existir: `name: area-treino-ironman`,
 duração, tipo de treino, FTP/zonas atuais, fase do plano (base/build/peak/taper),
 decisões tomadas. **Nunca** humor, motivação ou cansaço subjetivo — só o que
 vem de dados objetivos (intervals.icu) ou de tarefas concluídas.
+
+Sincroniza também um resumo curto para o painel **Central Claudio** (coleção
+`areas`, doc `treino`) — ver [[reference-central-claudio-dashboard]].
+
+## Sincronizar a grelha semanal de treino no painel
+
+O painel Central Claudio mostra o treino de cada um dos próximos 7 dias, mas
+**não consegue ir buscar isso sozinho** ao intervals.icu — o conector
+`treinador01` fica bloqueado por política da plataforma quando chamado de
+dentro de um Artifact. Por isso, sempre que consultares `list_activities` ou
+`get_upcoming_events` (ex: no início de uma conversa sobre treino, ou quando o
+António pedir para ver a semana), aproveita para escrever os próximos 7 dias
+na coleção `training` desse painel (doc id = data `YYYY-MM-DD`, campo `items`:
+lista de `{type, name, duration_s, load}`) — ver
+[[reference-central-claudio-dashboard]] para o URL exato e o formato usado da
+última vez. Isto mantém o painel a refletir a realidade sem precisares de o
+fazeres a cada mensagem — só quando já foste buscar dados frescos por outro
+motivo.
 
 ## Tom
 
