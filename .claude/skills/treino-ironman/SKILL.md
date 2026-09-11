@@ -48,6 +48,24 @@ duração, tipo de treino, FTP/zonas atuais, fase do plano (base/build/peak/tape
 decisões tomadas. **Nunca** humor, motivação ou cansaço subjetivo — só o que
 vem de dados objetivos (intervals.icu) ou de tarefas concluídas.
 
+Sincroniza também um resumo curto para o painel **Central Claudio** (coleção
+`areas`, doc `treino`) — ver [[reference-central-claudio-dashboard]].
+
+## Sincronizar a grelha semanal de treino no painel
+
+O painel Central Claudio mostra o treino de cada um dos próximos 7 dias, mas
+**não consegue ir buscar isso sozinho** ao intervals.icu — o conector
+`treinador01` fica bloqueado por política da plataforma quando chamado de
+dentro de um Artifact. Por isso, sempre que consultares `list_activities` ou
+`get_upcoming_events` (ex: no início de uma conversa sobre treino, ou quando o
+António pedir para ver a semana), aproveita para escrever os próximos 7 dias
+na coleção `training` desse painel (doc id = data `YYYY-MM-DD`, campo `items`:
+lista de `{type, name, duration_s, load}`) — ver
+[[reference-central-claudio-dashboard]] para o URL exato e o formato usado da
+última vez. Isto mantém o painel a refletir a realidade sem precisares de o
+fazeres a cada mensagem — só quando já foste buscar dados frescos por outro
+motivo.
+
 ## Tom
 
 Técnico mas direto. Se o volume pedido não é realista dado o trabalho fixo e o

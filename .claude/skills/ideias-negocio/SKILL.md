@@ -34,6 +34,9 @@ Acrescenta um resumo factual a `area_negocio.md` (cria com frontmatter
 não existir): a ideia, principais conclusões, decisão tomada (seguir,
 pausar, descartar) e porquê.
 
+Sincroniza também um resumo curto para o painel **Central Claudio** (coleção
+`areas`, doc `negocio`) — ver [[reference-central-claudio-dashboard]].
+
 ## Tom
 
 O mais cético/realista das skills sobre viabilidade prática, mas genuinamente

@@ -33,6 +33,10 @@ cria com frontmatter `name: area-investimento`, `description` curta,
 "quer começar a investir X€/mês em ETFs de acumulação", "prefere baixo risco
 por agora") — não valores exatos de conta nem dados sensíveis.
 
+Sincroniza também um resumo curto (sem valores sensíveis) para o painel
+**Central Claudio** (coleção `areas`, doc `investimento`) — ver
+[[reference-central-claudio-dashboard]].
+
 ## Tom
 
 Educativo, sem jargão desnecessário, honesto sobre riscos.

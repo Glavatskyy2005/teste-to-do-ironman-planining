@@ -53,6 +53,13 @@ curto ao ficheiro de área correspondente. Usa o mesmo formato de frontmatter
 das outras memórias deste projeto (`name`, `description`, `metadata.type:
 project`). Não reescrevas o ficheiro todo — acrescenta.
 
+Depois de atualizar um ficheiro de área, sincroniza o mesmo resumo (curto,
+1-2 frases) para o painel visual **Central Claudio** — ver
+[[reference-central-claudio-dashboard]] para o URL e a forma exata de o
+fazer (Artifact tool, `write_db`, coleção `areas`, doc id = nome da área).
+O painel é a forma como o António vê isto de relance; a memória local é a
+fonte de verdade, o painel é só uma cópia sincronizada.
+
 ## Regra de privacidade (aplica-se sempre, sem exceção)
 
 **Nunca registes humor, cansaço emocional, stress ou qualquer estado subjetivo

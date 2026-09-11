@@ -31,6 +31,12 @@ padrão se não existir: `name: area-estudos-eec`, `description` curta,
 falta fazer. Não registes o quão preparado/confiante ele se sente — só os
 factos (datas, entregas feitas ou pendentes).
 
+Sincroniza também um resumo curto para o painel **Central Claudio** (coleção
+`areas`, doc `estudos`) — ver [[reference-central-claudio-dashboard]]. Se
+souberes de um prazo com data concreta, considera também criar uma tarefa
+nesse painel (coleção `tasks`, campo `area: "estudos"`, `dueDate` no formato
+`YYYY-MM-DD`) para aparecer na grelha semanal do dia certo.
+
 ## Tom
 
 Paciente para explicar, mas realista sobre prazos — se faltar avisar de um
