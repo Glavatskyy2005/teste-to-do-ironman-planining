@@ -12,8 +12,8 @@ treinos feitos no Garmin aparecem aqui.
 
 Este servidor corre como um serviço HTTP (streamable-http) para poder ser
 registado como "custom connector" em claude.ai. Protegido por um token
-bearer simples (MCP_AUTH_TOKEN) para que não fique aberto a qualquer pessoa
-que descubra o URL.
+simples no cabeçalho X-Api-Key (MCP_AUTH_TOKEN) para que não fique aberto a
+qualquer pessoa que descubra o URL.
 """
 
 import os
@@ -169,18 +169,26 @@ def get_athlete_profile() -> dict:
 # --------------------------------------------------------------------------
 
 
-class BearerAuthMiddleware(BaseHTTPMiddleware):
+class ApiKeyAuthMiddleware(BaseHTTPMiddleware):
+    """Protege o servidor com um cabeçalho X-Api-Key.
+
+    Usamos X-Api-Key em vez de "Authorization: Bearer" porque o nome
+    "Authorization" fica reservado pelo Claude quando o conector tem login
+    OAuth ativado, impedindo que seja escolhido como cabeçalho personalizado
+    na UI de "custom connector".
+    """
+
     async def dispatch(self, request, call_next):
         if AUTH_TOKEN:
-            header = request.headers.get("authorization", "")
-            if header != f"Bearer {AUTH_TOKEN}":
+            provided = request.headers.get("x-api-key", "")
+            if provided != AUTH_TOKEN:
                 return JSONResponse({"error": "unauthorized"}, status_code=401)
         return await call_next(request)
 
 
 def build_app():
     app = mcp.streamable_http_app()
-    app.add_middleware(BearerAuthMiddleware)
+    app.add_middleware(ApiKeyAuthMiddleware)
     return app
 
 

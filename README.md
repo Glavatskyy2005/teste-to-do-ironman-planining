@@ -34,7 +34,7 @@ python server.py
 Devias ver o servidor a arrancar em `http://0.0.0.0:8000`. Testa com:
 
 ```bash
-curl -H "Authorization: Bearer <o-teu-MCP_AUTH_TOKEN>" http://localhost:8000/mcp
+curl -H "X-Api-Key: <o-teu-MCP_AUTH_TOKEN>" http://localhost:8000/mcp
 ```
 
 Se o teu `MCP_AUTH_TOKEN` estiver certo, isto não deve devolver `401`.
@@ -60,7 +60,7 @@ diretamente no código — usa sempre variáveis de ambiente/secrets do serviço
 
 1. Em claude.ai (ou na app), vai a **Settings → Connectors → Add custom connector**
 2. URL: o endereço público do teu servidor (ex: `https://intervals-mcp.fly.dev/mcp`)
-3. Header de autenticação: `Authorization: Bearer <o-teu-MCP_AUTH_TOKEN>`
+3. Cabeçalho de requisição personalizado: nome `X-Api-Key`, valor `<o-teu-MCP_AUTH_TOKEN>` (não uses "Authorization" — esse nome fica reservado pelo Claude quando o login OAuth está ativado)
 4. Dá-lhe um nome (ex: `intervals-icu`) — as ferramentas vão aparecer como `mcp__intervals-icu__list_activities`, etc.
 5. Ativa o conector nesta conversa/organização
 
