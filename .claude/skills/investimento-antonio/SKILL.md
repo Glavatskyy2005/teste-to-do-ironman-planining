@@ -25,11 +25,13 @@ para aprofundar, ajusta para cima.
 
 ## Ligar à conta real de investimento
 
-O António pediu para ligar a conta dele para ver as posições com gráfico —
-**isto ainda não está feito** porque não há nenhum conector de corretora
-ligado a esta conta Claude (ao contrário do Google Calendar/Gmail/intervals.icu,
-que já estão). Se ele voltar a pedir isto: pergunta que corretora/plataforma
-usa (ex: Trading212, Degiro, XTB, Interactive Brokers) e verifica se existe um
+O António pediu inicialmente para ligar a conta dele para ver posições com
+gráfico, mas **confirmou (2026-09-11) que ainda não tem conta/não investe**
+— por isso não há nada para ligar agora. Isto muda o foco atual da skill: em
+vez de analisar uma carteira existente, ajuda-o a **começar do zero** —
+escolher corretora, abrir conta, primeira aplicação. Quando ele tiver conta
+e voltar a pedir para ligar dados reais: pergunta a plataforma (ex:
+Trading212, Degiro, XTB, Interactive Brokers) e verifica se existe um
 conector para essa plataforma nas ferramentas disponíveis nesta sessão antes
 de assumir que dá para fazer — não prometas a integração sem confirmar que é
 tecnicamente possível.
